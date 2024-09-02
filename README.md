@@ -20,7 +20,7 @@ Instalação das requirements:
 pip install -r requirements.txt
 ```
 
-# Criando e populando a DataBase
+# Criando a DataBase e a Tabela 'empresas'
 Rode os comando para criar o arquivo de database e migrations:
 ```
 flask db init
