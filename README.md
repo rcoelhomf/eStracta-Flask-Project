@@ -1,9 +1,9 @@
 # eStracta-Flask-Project
 
 
-###Comandos para inicialização do projeto
+# Comandos para inicialização do projeto
 Criação do venv:
-Shell
+
 ```
 python -m venv venv
 ```
@@ -20,7 +20,7 @@ Instalação das requirements:
 pip install -r requirements.txt
 ```
 
-###Criando e populando a DataBase
+# Criando e populando a DataBase
 Rode os comando para criar o arquivo de database e migrations:
 ```
 flask db init
@@ -32,7 +32,7 @@ flask db migrate
 flask db upgrade
 ```
 
-###Rode o programa com o comando:
+# Rode o programa com o comando:
 ```
 flask run
 ```
