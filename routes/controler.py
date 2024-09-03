@@ -15,13 +15,24 @@ empresa_model = empresa_api.model('Empresa', {
 })
 
 
+pagination_model = empresa_api.model('Pagination', {
+    'total': fields.Integer(description='Número total de empresas'),
+    'pages': fields.Integer(description='Número total de páginas'),
+    'current_page': fields.Integer(description='Número da página atual'),
+    'per_page': fields.Integer(description='Número de empresas por página'),
+    'has_next': fields.Boolean(description='Indica se há uma próxima página'),
+    'has_prev': fields.Boolean(description='Indica se há uma página anterior'),
+    'companies': fields.List(fields.Nested(empresa_model), description='Lista de empresas na página atual'),
+})
+
+
 @empresa_api.route('/empresa')
 class CompanyResource(Resource):
+    @empresa_api.marshal_with(pagination_model)
     def get(self):
         page = request.args.get('page', 1, type=int)
         per_page = request.args.get('per_page', 10, type=int)
         paginated_companies = Empresa.query.paginate(page=page, per_page=per_page, error_out=False)
-        company_list = [marshal(company, empresa_model) for company in paginated_companies.items]
         response = {
             'total': paginated_companies.total,
             'pages': paginated_companies.pages,
@@ -29,7 +40,7 @@ class CompanyResource(Resource):
             'per_page': paginated_companies.per_page,
             'has_next': paginated_companies.has_next,
             'has_prev': paginated_companies.has_prev,
-            'companies': company_list
+            'companies': paginated_companies.items
         }
 
         return response, 200
