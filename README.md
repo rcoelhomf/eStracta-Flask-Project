@@ -7,9 +7,13 @@ Criação do venv:
 ```
 python -m venv venv
 ```
-Ativação do venv no windows:
+Ativação do venv no windows bash / powershell:
 ```
+# bash
 source venv/scripts/activate
+ 
+# powershell
+.\venv\Scripts\activate
 ```
 Ou no MacOS/Linux:
 ```
