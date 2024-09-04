@@ -49,5 +49,5 @@ http://127.0.0.1:5000/docs
 
 # Informações da API
 
-<p>As rotas são protegidas por token de acesso, portanto para acessa-las é preciso fazer o cadastro e o login com um usuário existenteL</p>
+<p>As rotas são protegidas por token de acesso, portanto para acessa-las é preciso fazer o cadastro e o login com um usuário existente</p>
 <p>As senhas dos usuários são rasheadas no banco de dados</p>
